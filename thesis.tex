@@ -1,57 +1,5 @@
 \documentclass[11pt,edeposit,draftthesis]{uiucthesis2020}
-
-% {{{ packages
-
-\usepackage{blindtext}
-
-% math
-\usepackage{fixmath}
-\usepackage{amsmath}
-\usepackage{amsthm}
-\usepackage{amssymb}
-\usepackage{stmaryrd}
-
-% pretty links
-\usepackage{xparse}
-\usepackage{hyperref}
-\usepackage{cleveref}
-\hypersetup{
-    colorlinks=true,
-    urlcolor=blue,
-    citecolor=black,
-    linkcolor=black
-}
-
-% better environments
-\usepackage[shortlabels]{enumitem}
-\usepackage{booktabs}
-
-% fancier font
-\usepackage[sc]{mathpazo}
-% better typography
-\usepackage[activate={true,nocompatibility}, % activate protrusion and font expansion
-            final,              % enable microtype, use draft to disable
-            tracking=true,
-            kerning=true,       % optimise interactions between characters
-            spacing=true,       % more uniform spacing between words
-            factor=1100,        % more protrusion
-            stretch=10,         % smaller values (default 20, 20) to avoid blurring
-            shrink=10]{microtype}
-\microtypecontext{spacing=nonfrench}
-\SetTracking{encoding={*}, shape=sc}{40}
-
-% }}}
-
-% {{{ commands
-
-\NewDocumentCommand \dx { O{x} } {\,\mathrm{d} #1}
-\NewDocumentCommand \vect { m } { \mathbold{#1} }
-\NewDocumentCommand \jump { m } { \left\llbracket #1 \right\rrbracket }
-\NewDocumentCommand \avg { m } { \left\langle #1 \right\rangle}
-\NewDocumentCommand \od { m m } { \dfrac{\mathrm{d} #1}{\mathrm{d} #2} }
-\NewDocumentCommand \pd { m m } { \dfrac{\partial #1}{\partial #2} }
-
-% }}}
+\input{thesisstyle}
 
 % {{{ title
 
