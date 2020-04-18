@@ -1,4 +1,4 @@
-# uiucthesis2020
+# UIUC Thesis Template 2020
 
 This is a version of [uiucthesis2014](https://github.com/mayhewsw/uiucthesis2014)
 with some updates to the new decade. The main
@@ -23,3 +23,13 @@ The provided documentation can also be built with
 ```bash
 make docs
 ```
+
+# References
+
+Some recommended reading
+
+* [Typography with microtype](http://www.khirevich.com/latex/microtype/)
+* [Tables with booktabs](https://inf.ethz.ch/personal/markusp/teaching/guides/guide-tables.pdf)
+* [Powerful Commands with xparse](https://www.texdev.net/2010/05/23/from-newcommand-to-newdocumentcommand/)
+* [ISO Math with fixmath](https://ctan.org/pkg/fixmath)
+* [References with cleveref](https://texblog.org/2013/05/06/cleveref-a-clever-way-to-reference-in-latex/)
