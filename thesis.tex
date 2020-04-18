@@ -1,0 +1,163 @@
+\documentclass[11pt,edeposit,draftthesis]{uiucthesis2020}
+
+% {{{ packages
+
+\usepackage{blindtext}
+
+% math
+\usepackage{fixmath}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{stmaryrd}
+
+% pretty links
+\usepackage{xparse}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\hypersetup{
+    colorlinks=true,
+    urlcolor=blue,
+    citecolor=black,
+    linkcolor=black
+}
+
+% better environments
+\usepackage[shortlabels]{enumitem}
+\usepackage{booktabs}
+
+% fancier font
+\usepackage[sc]{mathpazo}
+% better typography
+\usepackage[activate={true,nocompatibility}, % activate protrusion and font expansion
+            final,              % enable microtype, use draft to disable
+            tracking=true,
+            kerning=true,       % optimise interactions between characters
+            spacing=true,       % more uniform spacing between words
+            factor=1100,        % more protrusion
+            stretch=10,         % smaller values (default 20, 20) to avoid blurring
+            shrink=10]{microtype}
+\microtypecontext{spacing=nonfrench}
+\SetTracking{encoding={*}, shape=sc}{40}
+
+% }}}
+
+% {{{ commands
+
+\NewDocumentCommand \dx { O{x} } {\,\mathrm{d} #1}
+\NewDocumentCommand \vect { m } { \mathbold{#1} }
+\NewDocumentCommand \jump { m } { \left\llbracket #1 \right\rrbracket }
+\NewDocumentCommand \avg { m } { \left\langle #1 \right\rangle}
+\NewDocumentCommand \od { m m } { \dfrac{\mathrm{d} #1}{\mathrm{d} #2} }
+\NewDocumentCommand \pd { m m } { \dfrac{\partial #1}{\partial #2} }
+
+% }}}
+
+% {{{ title
+
+\title{Coffee Consumption of Graduate Students Trying to Finish Dissertations}
+\author{Juan Valdez}
+\department{Food Science}
+
+\schools{
+B. A., University of Columbia, 1981 \\
+A. M., University of Illinois at Urbana-Champaign, 1986
+}
+
+\phdthesis
+\advisor{Java Jack}
+\degreeyear{1994}
+
+\committee{
+Professor Prof Uno, Chair \\
+Professor Prof Dos, Director of Research \\
+Assistant Professor Prof Tres \\
+Adjunct Professor Prof Quatro
+}
+
+% }}}
+
+\begin{document}
+
+\maketitle
+
+% {{{ front matter
+
+\begin{frontmatter}
+
+\begin{abstract}
+This is a comprehensive study of caffeine consumption by graduate
+students at the University of Illinois who are in the very final
+stages of completing their doctoral degrees. A study group of six
+hundred doctoral students\ldots.
+\end{abstract}
+
+\chapter*{Acknowledgments}
+
+This project would not have been possible without the support of
+many people. Many thanks to my adviser, Lawrence T. Strongarm, who
+read my numerous revisions and helped make some sense of the
+confusion. Also thanks to my committee members, Reginald Bottoms,
+Karin Vegas, and Cindy Willy, who offered guidance and support.
+Thanks to the University of Illinois Graduate College for awarding
+me a Dissertation Completion Fellowship, providing me with the
+financial means to complete this project. And finally, thanks to
+my husband, parents, and numerous friends who endured this long
+process with me, always offering support and love.
+
+\begin{dedication}
+To Coffee
+\end{dedication}
+
+\tableofcontents
+\listoftables
+\listoffigures
+
+\end{frontmatter}
+
+% }}}
+
+% {{{ main matter
+
+\begin{mainmatter}
+
+\chapter{Introduction}
+
+\Blindtext[6]
+
+\chapter{Methods}
+
+This is a citation to~\cite{Walker2015} and~\cite{Hager2006}.
+
+
+\Blindtext[6]
+
+\chapter{Results}
+
+\Blindtext[6]
+
+\chapter{Conclusions}
+
+\Blindtext[6]
+
+\end{mainmatter}
+
+% }}}
+
+% {{{ back matter
+
+\begin{backmatter}
+
+\bibliographystyle{apalike}
+\bibliography{references}
+
+\end{backmatter}
+
+\appendix
+\chapter{My Appendix}
+
+\Blindtext[6]
+
+% }}}
+
+\end{document}
