@@ -23,6 +23,10 @@
 \newif\if@edeposit \@edepositfalse
 \DeclareOption{edeposit}{\@edeposittrue}
 
+% grid
+\newif\if@layoutgrid \@layoutgridfalse
+\DeclareOption{layoutgrid}{\@layoutgridtrue}
+
 % additional options passed to `scrbook` class
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{scrbook}}
 \PassOptionsToClass{DIV=12}{scrbook}
@@ -75,7 +79,14 @@
 \RequirePackage{scrlayer-scrpage}
 
 % enable this to better check sizing
-% \RequirePackage[grid, gridunit=in, texcoord]{eso-pic}
+\if@layoutgrid
+    \RequirePackage[
+        grid, gridBG,
+        gridunit=in,
+        gridcolor=gray!70,
+        subgridcolor=gray!70,
+        texcoord]{eso-pic}
+\fi
 
 % >>>
 
@@ -190,28 +201,28 @@
 \begin{center}
 % see https://grad.illinois.edu/files/pdfs/thesis-doctoral-titlepage-example.pdf
 % for details about some of these numbers, but note that they are eyeballed
-\newlength{\dim@tptopoffset}
-\setlength{\dim@tptopoffset}{1in}
+\newlength{\offset@fromtop}
+\setlength{\offset@fromtop}{1in}
 
-\newlength{\dim@tptitleoffset}
-\setlength{\dim@tptitleoffset}{1.5in}
+\newlength{\offset@fromtitle}
+\setlength{\offset@fromtitle}{1.5in}
 
-\newlength{\dim@tpauthoroffset}
-\setlength{\dim@tpauthoroffset}{1.5in}
+\newlength{\offset@fromauthor}
+\setlength{\offset@fromauthor}{1.5in}
 
-\newlength{\dim@tpvolumeoffset}
-\setlength{\dim@tpvolumeoffset}{0.5in}
+\newlength{\offset@fromvolume}
+\setlength{\offset@fromvolume}{0.5in}
 
-\newlength{\dim@tpsubmissionoffset}
-\setlength{\dim@tpsubmissionoffset}{2.0in}
+\newlength{\offset@fromsubmission}
+\setlength{\offset@fromsubmission}{2.0in}
 
-\newlength{\dim@tplocationoffset}
-\setlength{\dim@tplocationoffset}{0.25in}
+\newlength{\offset@fromaddress}
+\setlength{\offset@fromaddress}{0.25in}
 
 % set an offset at the top
-\vbox to \dim@tptopoffset {}
+\vbox to \offset@fromtop {}
 % title
-\vbox to \dim@tptitleoffset {%
+\vbox to \offset@fromtitle {%
     {\@Utitle}
     \if@thesisdraft
     \\[11pt]
@@ -219,20 +230,20 @@
     \fi
     \vfil}
 % author
-\vbox to \dim@tpauthoroffset {%
+\vbox to \offset@fromauthor {%
     {BY} \\[11pt]
     {\@Uauthor} \\[11pt]
     \vfil}%
 % statement
-\vbox to \dim@tpvolumeoffset {\thesis@volume\vfil}
-\vbox to \dim@tpsubmissionoffset {%
+\vbox to \offset@fromvolume {\thesis@volume\vfil}
+\vbox to \offset@fromsubmission {%
     {\@thesisname} \\[11pt]
     Submitted in partial fulfillment of the requirements \\
     for the degree of \@degree\ in \@dept \\
     in the \@college\ of the \\
     University of Illinois at Urbana-Champaign, \@degreeyear\vfil}
 % location
-\vbox to \dim@tplocationoffset {Urbana, Illinois}
+\vbox to \offset@fromaddress {Urbana, Illinois}
 \end{center}
 
 % offset for `Doctoral Committee` line
