@@ -28,8 +28,8 @@ make docs
 
 Some recommended reading
 
-* [Typography with microtype](http://www.khirevich.com/latex/microtype/)
-* [Tables with booktabs](https://inf.ethz.ch/personal/markusp/teaching/guides/guide-tables.pdf)
-* [Powerful Commands with xparse](https://www.texdev.net/2010/05/23/from-newcommand-to-newdocumentcommand/)
-* [ISO Math with fixmath](https://ctan.org/pkg/fixmath)
-* [References with cleveref](https://texblog.org/2013/05/06/cleveref-a-clever-way-to-reference-in-latex/)
+* [microtype: Better Typography](http://www.khirevich.com/latex/microtype/)
+* [booktabs: Pretty Tables](https://inf.ethz.ch/personal/markusp/teaching/guides/guide-tables.pdf)
+* [xparse: Powerful Commands](https://www.texdev.net/2010/05/23/from-newcommand-to-newdocumentcommand/)
+* [fixmath: ISO Math](https://ctan.org/pkg/fixmath)
+* [cleveref: Flexible References](https://texblog.org/2013/05/06/cleveref-a-clever-way-to-reference-in-latex/)
