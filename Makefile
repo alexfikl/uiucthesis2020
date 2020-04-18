@@ -1,7 +1,7 @@
 TEXMK?=pdflatex
 BIBMK?=bibtex
 
-all: thesis.pdf docs
+all: example docs
 
 example: thesis.pdf
 
@@ -9,7 +9,7 @@ docs:
 	@$(TEXMK) uiucthesis2020.dtx
 	@$(TEXMK) uiucthesis2020.dtx
 
-%.pdf: %.tex references.bib uiucthesis2020.cls
+%.pdf: %.tex thesisstyle.tex references.bib uiucthesis2020.cls
 	@$(TEXMK) $<
 	@$(BIBMK) $(basename $<)
 	@$(BIBMK) $(basename $<)
