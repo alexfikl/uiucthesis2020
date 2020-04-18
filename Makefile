@@ -1,7 +1,13 @@
 TEXMK?=pdflatex
 BIBMK?=bibtex
 
-all: thesis.pdf
+all: thesis.pdf docs
+
+example: thesis.pdf
+
+docs:
+	@$(TEXMK) uiucthesis2020.dtx
+	@$(TEXMK) uiucthesis2020.dtx
 
 %.pdf: %.tex references.bib uiucthesis2020.cls
 	@$(TEXMK) $<
@@ -11,9 +17,9 @@ all: thesis.pdf
 	@$(TEXMK) $<
 
 clean:
-	@rm -f *.out *.log *.aux *.gz *.spl *.blg *.bbl *.thm *.lof *.lot *.toc
+	@rm -f *.out *.log *.aux *.gz *.spl *.blg *.bbl *.thm *.lof *.lot *.toc *.xml
 
 purge: clean
-	@rm -f *.pdf img/*-converted-to.pdf
+	@rm -f *.pdf
 
 .PHONY: clean purge
