@@ -491,16 +491,12 @@
 
 % <<< spacing
 
-\def\thesisspacing{
-    \if@doublespacing
-        \doublespacing
-    \else
-        \onehalfspacing
-    \fi
-}
-
 \pagenumbering{roman}
-\AtBeginDocument{\thesisspacing}
+\if@doublespacing
+    \doublespacing
+\else
+    \onehalfspacing
+\fi
 
 % >>>
 
