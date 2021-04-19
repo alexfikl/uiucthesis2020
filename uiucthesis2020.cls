@@ -82,6 +82,8 @@
 \RequirePackage{tocbasic}
 % customize headers and footers
 \RequirePackage{scrlayer-scrpage}
+% indent first paragraph in a section
+\usepackage{indentfirst}
 
 % enable this to better check sizing
 \if@layoutgrid
