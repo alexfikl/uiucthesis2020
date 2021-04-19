@@ -24,6 +24,22 @@ The provided documentation can also be built with
 make docs
 ```
 
+# Usage
+
+To use this class, the easiest way is probably just to copy `uiucthesis2020.cls`
+to your own repository / local folder and use is as a document class
+```latex
+\documentclass[11pt,edeposit,draftthesis]{uiucthesis2020}
+% ... custom commands and packages ...
+
+\begin{document}
+% ... custom text ...
+\end{document}
+```
+
+The `thesis.tex` and `thesisstyle.tex` files are provided as inspiration and
+likely contain some personal preferences.
+
 # References
 
 Some recommended reading
