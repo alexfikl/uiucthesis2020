@@ -71,6 +71,11 @@
 
 % NOTE: load packages after the class was loaded since they may depend on it
 
+% standard math
+\RequirePackage{fixmath}
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+
 % used to set doublesplacing
 \RequirePackage{setspace}
 % customize the toc
@@ -307,7 +312,7 @@
 
 % add line numbers if in draft mode
 \if@thesisdraft
-    \RequirePackage{lineno}
+    \RequirePackage[displaymath,mathlines]{lineno}
     \RequirePackage{xcolor}
     \renewcommand{\linenumberfont}{
         \normalfont\footnotesize\textcolor{black!50}
@@ -315,6 +320,29 @@
 
     \let\thesis@mainmatter=\mainmatter
     \def\mainmatter{\linenumbers\thesis@mainmatter}
+
+    % The \linenumbers command does not play nice with amsmath, so we
+    % have added some patches to fix it. See
+    % http://phaseportrait.blogspot.com/2007/08/lineno-and-amsmath-compatibility.html
+    \newcommand*{\patchAmsMathEnvironmentForLineno}[1]{%
+        \expandafter\let\csname old#1\expandafter\endcsname\csname #1\endcsname
+        \expandafter\let\csname oldend#1\expandafter\endcsname\csname end#1\endcsname
+        \renewenvironment{#1}%
+            {\linenomath\csname old#1\endcsname}%
+            {\csname oldend#1\endcsname\endlinenomath}}%
+
+    \newcommand*{\patchBothAmsMathEnvironmentsForLineno}[1]{%
+        \patchAmsMathEnvironmentForLineno{#1}%
+        \patchAmsMathEnvironmentForLineno{#1*}}%
+
+    \AtBeginDocument{%
+        \patchBothAmsMathEnvironmentsForLineno{equation}%
+        \patchBothAmsMathEnvironmentsForLineno{align}%
+        \patchBothAmsMathEnvironmentsForLineno{flalign}%
+        \patchBothAmsMathEnvironmentsForLineno{alignat}%
+        \patchBothAmsMathEnvironmentsForLineno{gather}%
+        \patchBothAmsMathEnvironmentsForLineno{multline}%
+    }
 \fi
 
 % >>>
