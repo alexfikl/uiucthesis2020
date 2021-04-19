@@ -1,25 +1,25 @@
-TEXMK?=pdflatex
-BIBMK?=bibtex
+TEXMK?=latexmk
+OUTDIR?=latex.out
+TEXFLAGS:=-pdf -shell-escape -output-directory=$(OUTDIR)
 
-all: example docs
+all: thesis.pdf docs
 
-example: thesis.pdf
+%.pdf: %.tex thesisstyle.tex uiucthesis2020.cls references.bib
+	@mkdir -p $(OUTDIR)
+	$(TEXMK) $(TEXFLAGS) $<
+	@cp $(OUTDIR)/$@ .
 
-docs:
-	@$(TEXMK) uiucthesis2020.dtx
-	@$(TEXMK) uiucthesis2020.dtx
-
-%.pdf: %.tex thesisstyle.tex references.bib uiucthesis2020.cls
-	@$(TEXMK) $<
-	@$(BIBMK) $(basename $<)
-	@$(BIBMK) $(basename $<)
-	@$(TEXMK) $<
-	@$(TEXMK) $<
+docs: uiucthesis2020.dtx uiucthesis2020.ins
+	@mkdir -p $(OUTDIR)
+	$(TEXMK) $(TEXFLAGS) $<
+	@cp $(OUTDIR)/uiucthesis2020.pdf .
 
 clean:
-	@rm -f *.out *.log *.aux *.gz *.spl *.blg *.bbl *.thm *.lof *.lot *.toc *.xml
+	@rm -rf *.log *.out *.bbl *.spl \
+		*.sync* *.blg *.aux *.fls *.fdb_latexmk \
+		$(OUTDIR)
 
 purge: clean
-	@rm -f *.pdf
+	@rm -rf *.pdf
 
 .PHONY: clean purge
