@@ -3,11 +3,9 @@
 \usepackage{blindtext}
 
 % math
-\usepackage{fixmath}
-\usepackage{amsmath}
 \usepackage{amsthm}
-\usepackage{amssymb}
 \usepackage{stmaryrd}
+\usepackage{cases}
 
 % pretty links
 \usepackage{xparse}
@@ -55,6 +53,8 @@
     format=hang
 }
 
+\definecolor{UIUCOrange}{RGB}{255, 99, 64}
+
 % }}}
 
 % {{{ commands
@@ -66,6 +66,17 @@
 \NewDocumentCommand \od { m m } { \dfrac{\mathrm{d} #1}{\mathrm{d} #2} }
 \NewDocumentCommand \pd { m m } { \dfrac{\partial #1}{\partial #2} }
 
+\DeclareMathOperator{\tr}{tr}
+
 % }}}
 
+% {{{ environments
 
+\newtheorem{example}{Example}
+\newtheorem{remark}{Remark}
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{theorem}{Theorem}
+
+% }}}
