@@ -43,6 +43,7 @@
 % additional options
 \KOMAoptions{
     chapterentrydots=true,
+    chapterprefix=true,
 }
 
 \if@edeposit
@@ -314,7 +315,7 @@
 
 % add line numbers if in draft mode
 \if@thesisdraft
-    \RequirePackage[displaymath,mathlines]{lineno}
+    \RequirePackage[mathlines]{lineno}
     \RequirePackage{xcolor}
     \renewcommand{\linenumberfont}{
         \normalfont\footnotesize\textcolor{black!50}
@@ -417,55 +418,30 @@
 \newcommand{\subsubsectiontitlefont}{\normalsize\bfseries}
 % add a `Chapter ...` in front of toc entries
 \DeclareTOCStyleEntry[
-    dynnumwidth
-]{chapter}{chapter}
+    dynnumwidth,
+    ]{chapter}{chapter}
 \let\thesis@addchaptertocentry=\addchaptertocentry
 \def\addchaptertocentry#1#2{
-    \ifstr{#1}{}{
-        \thesis@addchaptertocentry{#1}{#2}}{
-        \thesis@addchaptertocentry{\chapapp{} #1}{#2}}
-}
-
-% nice spacing for the chapter title
-\newskip{\dim@chapskip}
-\newlength{\dim@chapternumberheight}
-
-\newlength{\chaptertitleheight}
-\setlength{\chaptertitleheight}{1.85in}
-
-\def\@makechapterhead#1{%
-\vbox to \chaptertitleheight {
-    \def\baselinestretch{1}\@normalsize
-    \parindent \z@ \raggedright \normalfont
-    \ifnum \c@secnumdepth >\m@ne
-        \if@mainmatter
-            \dim@chapskip=\z@
-            {\chapternumberfont \@chapapp\space \thechapter}
-            \par\nobreak
-            \vskip 20\p@
-        \fi
-    \fi
-
-    \interlinepenalty\@M
-    \vspace*{\dim@chapskip}%
-    \chaptertitlefont #1
-    \vfil
+    \Ifstr{#1}{}{
+        \thesis@addchaptertocentry{#1}{
+            \texorpdfstring{\MakeUppercase{#2}}{#2}}
+    }{%
+        \thesis@addchaptertocentry{\MakeUppercase{\chapapp{} #1}}{
+            \texorpdfstring{\MakeUppercase{#2}}{#2}}%
     }%
-\par\nobreak%
 }
 
-\def\@makeschapterhead#1{%
-\vbox to \chaptertitleheight {
-    \def\baselinestretch{1}\@normalsize
-    \parindent \z@ \raggedright \normalfont
-
-    \interlinepenalty\@M
-    \vspace*{\dim@chapskip}
-    \chaptertitlefont #1
-    \vfil
-    }%
-\par\nobreak%
+% uppercase chapters
+\renewcommand*{\chapterformat}{\chaptername~\thechapter}
+\renewcommand{\chapterlineswithprefixformat}[3]{%
+  \MakeUppercase{#2#3}%
 }
+
+% more spacing after chapters
+\RedeclareSectionCommand[
+    beforeskip=0pt,
+    afterskip=1in,
+    ]{chapter}
 
 % >>>
 
