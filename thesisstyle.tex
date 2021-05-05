@@ -10,7 +10,7 @@
 % pretty links
 \usepackage{xparse}
 \usepackage{hyperref}
-\usepackage{cleveref}
+\usepackage[nameinlink]{cleveref}
 \hypersetup{
     colorlinks=true,
     urlcolor=blue,
@@ -72,11 +72,15 @@
 
 % {{{ environments
 
-\newtheorem{example}{Example}
-\newtheorem{remark}{Remark}
-\newtheorem{definition}{Definition}
-\newtheorem{proposition}{Proposition}
-\newtheorem{lemma}{Lemma}
-\newtheorem{theorem}{Theorem}
+\NewDocumentCommand \newtheoremin { m m m } {
+    \newtheorem{#1}{#2}
+    \numberwithin{#1}{#3}
+}
+\newtheoremin{example}{Example}{section}
+\newtheoremin{remark}{Remark}{section}
+\newtheoremin{definition}{Definition}{section}
+\newtheoremin{proposition}{Proposition}{section}
+\newtheoremin{lemma}{Lemma}{section}
+\newtheoremin{theorem}{Theorem}{section}
 
 % }}}
