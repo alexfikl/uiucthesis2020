@@ -19,6 +19,10 @@
 \newif\if@doublespacing \@doublespacingfalse
 \DeclareOption{doublespacing}{\@doublespacingtrue}
 
+% force 1in bottom margin
+\newif\if@forcebottom \@forcebottomfalse
+\DeclareOption{forcebottom}{\@forcebottomtrue}
+
 % electronic deposit format
 \newif\if@edeposit \@edepositfalse
 \DeclareOption{edeposit}{\@edeposittrue}
@@ -64,6 +68,13 @@
         \ifnum\timemm<10 0\fi\number\timemm}%
 \else
     \def\draftheader{\empty}
+\fi
+
+% hardcode bottom margin
+\if@forcebottom
+    \typearea{14}
+    \usepackage{geometry}
+    \AfterCalculatingTypearea{\geometry{margin=1in}}
 \fi
 
 % >>>
@@ -516,6 +527,8 @@
 \fi
 
 % >>>
+
+\recalctypearea
 
 \endinput
 
