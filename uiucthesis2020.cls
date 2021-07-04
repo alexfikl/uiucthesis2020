@@ -71,10 +71,12 @@
 \fi
 
 % hardcode bottom margin
+% FIXME: this is a giant hack because KOMA-Script likes setting its own
+% margins, so we have to twiddle with it for both single and double spacing
 \if@forcebottom
-    \typearea{14}
     \usepackage{geometry}
-    \AfterCalculatingTypearea{\geometry{margin=1in}}
+    \typearea{14}
+    \AfterCalculatingTypearea{\geometry{margin=1in, footskip=0.5in}}
 \fi
 
 % >>>
