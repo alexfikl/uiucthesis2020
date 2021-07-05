@@ -40,6 +40,24 @@ to your own repository / local folder and use is as a document class
 The `thesis.tex` and `thesisstyle.tex` files are provided as inspiration and
 likely contain some personal preferences.
 
+# Options
+
+The class has several options that can be turned on as desired (see the
+documentation in ``uiucthesis2020.pdf`` for details). They are
+
+* ``draftthesis``: turns on line numbering, puts the compilation date on
+  each page, etc. This is mostly meant to make it easier to review the manuscript.
+* ``edeposit``: should be turned on when depositing the thesis electronically.
+  This contains some important official requirements.
+* ``doublespacing``: turns on double line spacing. By default the lines are
+  spaced at 1.5, which is also allowed by the official requirements.
+* ``forcebottom``: sets the bottom margin to be exactly ``1in`` as well. By
+  default, the class uses standard KOMA-Script margins (with ``DIV=12``),
+  which set the bottom margin to about twice the other margins (which are
+  already ``1in``).
+* ``layoutgrid``: adds a nice grid on each page to allow checking the
+  margins.
+
 # References
 
 Some recommended reading
