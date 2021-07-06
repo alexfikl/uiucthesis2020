@@ -167,7 +167,7 @@
 
 % define copyright page
 \newif\if@thesiscrpage \@thesiscrpagetrue
-\def\copyrightnotice{\copyright\, Copyright~\@degreeyear~by \@author.}
+\def\copyrightnotice{\copyright\, Copyright~\@degreeyear~\@author.}
 \let\nocopyrightpage\@thesiscrpagefalse
 \if@thesisdraft
     \nocopyrightpage
