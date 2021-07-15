@@ -445,7 +445,7 @@
 }
 
 % uppercase chapters
-\renewcommand*{\chapterformat}{\chaptername~\thechapter}
+\renewcommand*{\chapterformat}{\chapapp~\thechapter}
 \renewcommand{\chapterlineswithprefixformat}[3]{%
   \MakeUppercase{#2#3}%
 }
