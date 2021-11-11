@@ -46,6 +46,7 @@
 \addtokomafont{disposition}{\rmfamily}
 % additional options
 \KOMAoptions{
+    paper=letter,
     chapterentrydots=true,
     chapterprefix=true,
 }
