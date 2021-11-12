@@ -58,6 +58,11 @@
 % allow subsubsections in the TOC, if there are any
 % NOTE: if you got to subsubsections, you probably have too many!
 \setcounter{tocdepth}{\subsubsectiontocdepth}
+\setcounter{secnumdepth}{\subsubsectionnumdepth}
+
+% NOTE: if there are many levels of indentation int the TOC, making it flat
+% might be a good option with the following options
+\KOMAoption{toc}{indenttextentries,flat}
 
 \definecolor{UIUCOrange}{RGB}{255, 99, 64}
 
