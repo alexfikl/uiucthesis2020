@@ -427,11 +427,11 @@
 % <<< chapter / section styling
 
 % set font sizes
-\newcommand\chapternumberfont{\huge\bfseries}
-\newcommand\chaptertitlefont{\Huge\bfseries}
-\newcommand{\sectiontitlefont}{\Large\bfseries}
-\newcommand{\subsectiontitlefont}{\large\bfseries}
-\newcommand{\subsubsectiontitlefont}{\normalsize\bfseries}
+\addtokomafont{chapter}{\Huge\bfseries}
+\addtokomafont{section}{\Large\bfseries}
+\addtokomafont{subsection}{\large\bfseries}
+\addtokomafont{subsubsection}{\normalsize\bfseries}
+
 % add a `Chapter ...` in front of toc entries
 \DeclareTOCStyleEntry[
     dynnumwidth,
