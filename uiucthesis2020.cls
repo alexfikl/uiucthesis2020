@@ -385,13 +385,15 @@
 
 \let\thesis@listoftables=\listoftables
 \def\listoftables{%
-    \addcontentsline{toc}{chapter}{\listtablename}%
+    \addcontentsline{toc}{chapter}{
+        \texorpdfstring{\MakeUppercase{\listtablename}}{\listtablename}}%
     {\singlespacing\thesis@listoftables}%
 }
 
 \let\thesis@listoffigures=\listoffigures
 \def\listoffigures{%
-    \addcontentsline{toc}{chapter}{\listfigurename}%
+    \addcontentsline{toc}{chapter}{
+        \texorpdfstring{\MakeUppercase{\listfigurename}}{\listfigurename}}%
     {\singlespacing\thesis@listoffigures}%
 }
 
