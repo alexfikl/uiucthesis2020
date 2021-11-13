@@ -439,11 +439,9 @@
 \let\thesis@addchaptertocentry=\addchaptertocentry
 \def\addchaptertocentry#1#2{
     \Ifstr{#1}{}{
-        \thesis@addchaptertocentry{#1}{
-            \texorpdfstring{\MakeUppercase{#2}}{#2}}
+        \thesis@addchaptertocentry{#1}{\thesis@makeup{#2}}
     }{%
-        \thesis@addchaptertocentry{\MakeUppercase{\chapapp{} #1}}{
-            \texorpdfstring{\MakeUppercase{#2}}{#2}}%
+        \thesis@addchaptertocentry{\MakeUppercase{\chapapp{} #1}}{\thesis@makeup{#2}}
     }%
 }
 
