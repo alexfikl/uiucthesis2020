@@ -482,9 +482,9 @@
 
 \def\thebibliography{
     \begingroup%
-    \singlespacing%
     \chapter{\bibname}%
     \let\chapter\@gobbletwo%
+    \singlespacing%
     \thesis@thebib%
     }
 \def\endthebibliography{
