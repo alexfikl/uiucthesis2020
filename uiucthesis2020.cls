@@ -383,17 +383,17 @@
 
 % <<< lists of tables and figures and such
 
+\newcommand{\thesis@makeup}[1]{\texorpdfstring{\MakeUppercase{#1}}{#1}}
+
 \let\thesis@listoftables=\listoftables
 \def\listoftables{%
-    \addcontentsline{toc}{chapter}{
-        \texorpdfstring{\MakeUppercase{\listtablename}}{\listtablename}}%
+    \addcontentsline{toc}{chapter}{\thesis@makeup{\listtablename}}
     {\singlespacing\thesis@listoftables}%
 }
 
 \let\thesis@listoffigures=\listoffigures
 \def\listoffigures{%
-    \addcontentsline{toc}{chapter}{
-        \texorpdfstring{\MakeUppercase{\listfigurename}}{\listfigurename}}%
+    \addcontentsline{toc}{chapter}{\thesis@makeup{\listfigurename}}
     {\singlespacing\thesis@listoffigures}%
 }
 
