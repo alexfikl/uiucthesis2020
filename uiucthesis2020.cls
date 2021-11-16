@@ -99,8 +99,6 @@
 \RequirePackage{scrlayer-scrpage}
 % indent first paragraph in a section
 \RequirePackage{indentfirst}
-% customize PDF bookmarks a bit
-\RequirePackage{bookmark}
 
 % enable this to better check sizing
 \if@layoutgrid
@@ -112,7 +110,11 @@
         texcoord]{eso-pic}
 \fi
 
-\bookmarksetup{numbered}
+\AtBeginDocument{
+    % customize PDF bookmarks a bit
+    \RequirePackage{bookmark}
+    \bookmarksetup{numbered}
+}
 
 % >>>
 
@@ -381,6 +383,7 @@
 \let\thesis@tableofcontents=\tableofcontents
 \def\tableofcontents{%
     \pdfbookmark{\contentsname}{toc}
+    \phantomsection
     {\singlespacing\thesis@tableofcontents}
     \newpage}
 
