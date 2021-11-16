@@ -263,7 +263,7 @@
     Submitted in partial fulfillment of the requirements \\
     for the degree of \@degree\ in \@dept \\
     in the \@college\ of the \\
-    University of Illinois at Urbana-Champaign, \@degreeyear\vfil}
+    University of Illinois Urbana-Champaign, \@degreeyear\vfil}
 % location
 \vbox to \offset@fromaddress {Urbana, Illinois}
 \end{center}
