@@ -99,6 +99,8 @@
 \RequirePackage{scrlayer-scrpage}
 % indent first paragraph in a section
 \RequirePackage{indentfirst}
+% customize PDF bookmarks a bit
+\RequirePackage{bookmark}
 
 % enable this to better check sizing
 \if@layoutgrid
@@ -109,6 +111,8 @@
         subgridcolor=gray!70,
         texcoord]{eso-pic}
 \fi
+
+\bookmarksetup{numbered}
 
 % >>>
 
@@ -375,12 +379,8 @@
 
 % make sure its single spaced
 \let\thesis@tableofcontents=\tableofcontents
-% \def\tableofcontents{%
-%     \phantomsection
-%     \addcontentsline{toc}{chapter}{\thesis@makeup{\contentsname}}
-%     {\singlespacing\thesis@tableofcontents}
-%     \newpage}
 \def\tableofcontents{%
+    \pdfbookmark{\contentsname}{toc}
     {\singlespacing\thesis@tableofcontents}
     \newpage}
 
@@ -451,14 +451,14 @@
     \Ifstr{#1}{}{
         \thesis@addchaptertocentry{#1}{\thesis@makeup{#2}}
     }{%
-        \thesis@addchaptertocentry{\MakeUppercase{\chapapp{} #1}}{\thesis@makeup{#2}}
+        \thesis@addchaptertocentry{\thesis@makeup{\chapapp{} #1}}{\thesis@makeup{#2}}
     }%
 }
 
 % uppercase chapters
 \renewcommand*{\chapterformat}{\chapapp~\thechapter}
 \renewcommand{\chapterlineswithprefixformat}[3]{%
-  \MakeUppercase{#2#3}%
+  \thesis@makeup{#2#3}%
 }
 
 % more spacing after chapters
