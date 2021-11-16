@@ -98,7 +98,7 @@
 % customize headers and footers
 \RequirePackage{scrlayer-scrpage}
 % indent first paragraph in a section
-\usepackage{indentfirst}
+\RequirePackage{indentfirst}
 
 % enable this to better check sizing
 \if@layoutgrid
@@ -366,6 +366,8 @@
 
 % <<< table of contents
 
+\newcommand{\thesis@makeup}[1]{\texorpdfstring{\MakeUppercase{#1}}{#1}}
+
 % change name
 \AtBeginDocument{
     \renewcommand{\contentsname}{Table of Contents}
@@ -373,8 +375,14 @@
 
 % make sure its single spaced
 \let\thesis@tableofcontents=\tableofcontents
+% \def\tableofcontents{%
+%     \phantomsection
+%     \addcontentsline{toc}{chapter}{\thesis@makeup{\contentsname}}
+%     {\singlespacing\thesis@tableofcontents}
+%     \newpage}
 \def\tableofcontents{%
-    {\singlespacing\thesis@tableofcontents}}
+    {\singlespacing\thesis@tableofcontents}
+    \newpage}
 
 % add some more spacing to sections
 \DeclareTOCStyleEntry[beforeskip=0.5em]{section}{section}
@@ -383,18 +391,20 @@
 
 % <<< lists of tables and figures and such
 
-\newcommand{\thesis@makeup}[1]{\texorpdfstring{\MakeUppercase{#1}}{#1}}
-
 \let\thesis@listoftables=\listoftables
 \def\listoftables{%
+    \phantomsection
     \addcontentsline{toc}{chapter}{\thesis@makeup{\listtablename}}
     {\singlespacing\thesis@listoftables}%
+    \newpage
 }
 
 \let\thesis@listoffigures=\listoffigures
 \def\listoffigures{%
+    \phantomsection
     \addcontentsline{toc}{chapter}{\thesis@makeup{\listfigurename}}
     {\singlespacing\thesis@listoffigures}%
+    \newpage
 }
 
 \newenvironment*{symbollist}[1][1in]{
