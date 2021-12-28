@@ -522,7 +522,7 @@
 % <<< page header/footer styles
 
 \pagestyle{plain}
-\clearscrheadfoot
+\clearpairofpagestyles
 
 \cofoot[\pagemark]{\pagemark}
 \lohead[\draftheader]{\draftheader}
