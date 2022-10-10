@@ -71,12 +71,27 @@
 
 \NewDocumentCommand \dx { O{x} } {\,\mathrm{d} #1}
 \NewDocumentCommand \vect { m } { \mathbold{#1} }
-\NewDocumentCommand \jump { m } { \left\llbracket #1 \right\rrbracket }
-\NewDocumentCommand \avg { m } { \left\langle #1 \right\rangle}
 \NewDocumentCommand \od { m m } { \dfrac{\mathrm{d} #1}{\mathrm{d} #2} }
 \NewDocumentCommand \pd { m m } { \dfrac{\partial #1}{\partial #2} }
 
+% jump notation
+\NewDocumentCommand \jump { sm } {
+    \IfBooleanTF#1
+    {\left\llbracket #2 \right\rrbracket}
+    {\llbracket #2 \rrbracket}
+}
+% average notation
+\NewDocumentCommand \avg { sm } {
+    \IfBooleanTF#1
+    {\left\langle #2 \right\rangle}
+    {\langle #2 \rangle}
+}
+% inner product
+\NewDocumentCommand \ip { m } { \avg{ #1 } }
+
 \DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\argmin}{\operatorname{arg}\,\operatorname{min}}
 
 % }}}
 
