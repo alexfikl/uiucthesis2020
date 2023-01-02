@@ -1,9 +1,9 @@
 # UIUC Thesis Template 2020
 
 This is a version of [uiucthesis2014](https://github.com/mayhewsw/uiucthesis2014)
-with some updates to the new decade. The main
-[official requirements](https://grad.illinois.edu/thesis/format) should still
-be respected (feel free to file a bug otherwise).
+with some updates to the new decade compatible with *TeXLive 2018 and newer*.
+The main [official requirements](https://grad.illinois.edu/thesis/format) should
+still be respected (feel free to file a bug otherwise).
 
 At a technical level, a few things have changed in the class implementation:
 
