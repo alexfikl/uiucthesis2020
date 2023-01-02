@@ -51,6 +51,10 @@
     chapterprefix=true,
 }
 
+% NOTE: support for version of KOMAScript < 3.28 (and TeXLive 2018)
+% NOTE: we're not advertising this, but it would be nice to have regardless
+\providecommand*{\Ifstr}{\ifstr}
+
 \if@edeposit
     \KOMAoption{twoside}{false}
 \else
