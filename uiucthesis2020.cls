@@ -376,7 +376,7 @@
 
 % <<< table of contents
 
-\newcommand{\thesis@makeup}[1]{\texorpdfstring{\MakeUppercase{#1}}{#1}}
+\newcommand{\thesis@makeup}[1]{\texorpdfstring{\protect\MakeUppercase{\expandafter #1}}{#1}}
 
 % change name
 \AtBeginDocument{
