@@ -9,7 +9,7 @@ At a technical level, a few things have changed in the class implementation:
 
 * it was updated to more recent versions of LaTeX with less care about
   backwards compatibility.
-* it is now based on `srcbook` from *KOMA-Script* instead of the default
+* it is now based on `scrbook` from *KOMA-Script* instead of the default
   `book` document class.
 * the actual code class is hopefully easier to read, since a lot of weird
   custom spacing code was removed and replaced with `scrlayer-scrpage`
