@@ -1,7 +1,7 @@
 % <<< preamble
 
 \def\fileversion{v2.30b}
-\def\filedate{2020/02/20}
+\def\filedate{2024/11/02}
 \def\clsname{uiucthesis2020}
 
 \NeedsTeXFormat{LaTeX2e}
