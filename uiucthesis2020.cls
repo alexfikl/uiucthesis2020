@@ -95,6 +95,8 @@
 \RequirePackage{amsmath}
 \RequirePackage{amssymb}
 
+% used to define colors
+\RequirePackage[rgb, table]{xcolor}
 % used to set doublesplacing
 \RequirePackage{setspace}
 % customize the toc
@@ -363,7 +365,6 @@
 % add line numbers if in draft mode
 \if@thesisdraft
     \RequirePackage[mathlines]{lineno}
-    \RequirePackage{xcolor}
     \renewcommand{\linenumberfont}{
         \normalfont\footnotesize\textcolor{black!50}
     }
