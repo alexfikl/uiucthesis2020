@@ -11,8 +11,8 @@ At a technical level, a few things have changed in the class implementation:
   The class and surrounding packages have better support for typography and
   improved versatility compared to the standard `book` class.
 * *Improve positioning and customization code*. The class uses the
-  `scrlayer-scrpage` and `tocbasic` utilities to modify the page style, table of
-  contents style, and various positioning and spacing in a more consistent fashion.
+  `scrlayer-scrpage` and `tocbasic` to modify the page style, table of
+  contents style, and various positioning code in a more consistent fashion.
 * *Use higher level functionality*. Most parts switched from low level TeX
   commands to LaTeX2e commands and standard packages.
 
