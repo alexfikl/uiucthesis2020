@@ -90,6 +90,26 @@ these should be used, see the [official recommendations](https://marketing.illin
 | `IlliniBerry`        | ![#5C0E41](https://placehold.co/15x15/5C0E41/5C0E41.png) `(92, 14, 65)`    |
 | `IlliniEarth`        | ![#7D3E13](https://placehold.co/15x15/7D3E13/7D3E13.png) `(125, 62, 19)`   |
 
+You can use these colors for your plots as well. For example, to set the color
+cycle in `matplotlib` using you can do
+```python
+import matplotlib as mpl
+
+plt.rcParams["axes.prop_cycle"] = mpl.cycler(color=[
+    # Blue, Orange, Industrial, Harvest, Arches, Prairie, Patina, Berry, Earth
+    "#13294B", "#FF5F05", "#1D58A7", "#FCB316", "#009FD4", "#006230",
+    "#007E8E", "#5C0E41", "#7D3E13",
+])
+```
+or in MATLAB using [colororder](https://www.mathworks.com/help/matlab/ref/colororder.html)
+```matlab
+colororder([
+    % Blue, Orange, Industrial, Harvest, Arches, Prairie, Patina, Berry, Earth
+    '#13294B', '#FF5F05', '#1D58A7', '#FCB316', '#009FD4', '#006230', ...
+    '#007E8E', '#5C0E41', '#7D3E13', ...
+]);
+```
+
 # References
 
 Some recommended reading
