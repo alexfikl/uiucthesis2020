@@ -119,3 +119,8 @@ Some recommended reading
 * [xparse: Powerful Commands](https://www.texdev.net/2010/05/23/from-newcommand-to-newdocumentcommand/)
 * [fixmath: ISO Math](https://ctan.org/pkg/fixmath)
 * [cleveref: Flexible References](https://texblog.org/2013/05/06/cleveref-a-clever-way-to-reference-in-latex/)
+
+## License
+
+This code is template under the Creative Commons Zero v1.0 Universal. This means
+it is public domain and no attribution is required when copying it around!
