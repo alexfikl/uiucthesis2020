@@ -315,6 +315,29 @@
 
 % >>>
 
+% <<< commands
+
+% https://marketing.illinois.edu/visual-identity/color
+\definecolor{IlliniOrange}{RGB}{255, 95, 5}
+\definecolor{IlliniBlue}{RGB}{19, 41, 75}
+\definecolor{IlliniAltgeld}{RGB}{200, 65, 19}
+
+\definecolor{IlliniStorm1}{RGB}{112, 115, 114}
+\definecolor{IlliniStorm2}{RGB}{156, 154, 157}
+\definecolor{IlliniStorm3}{RGB}{200, 198, 199}
+\definecolor{IlliniStorm4}{RGB}{255, 255, 255}
+\definecolor{IlliniStorm5}{RGB}{0, 0, 0}
+
+\definecolor{IlliniIndustrial}{RGB}{29, 88, 167}
+\definecolor{IlliniArches}{RGB}{0, 159, 212}
+\definecolor{IlliniHarvest}{RGB}{252, 179, 22}
+\definecolor{IlliniPrairie}{RGB}{0, 98, 48}
+\definecolor{IlliniPatina}{RGB}{0, 126, 142}
+\definecolor{IlliniBerry}{RGB}{92, 14, 65}
+\definecolor{IlliniEarth}{RGB}{125, 62, 19}
+
+% >>>
+
 % <<< front matter
 
 % NOTE: https://grad.illinois.edu/thesis/format-abstract
