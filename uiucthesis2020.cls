@@ -1,6 +1,6 @@
 % <<< preamble
 
-\def\fileversion{v2.31}
+\def\fileversion{v2.33}
 \def\filedate{2024/11/02}
 \def\clsname{uiucthesis2020}
 
@@ -138,7 +138,6 @@
 \NewDocumentCommand \department { m } {\def\@uiucdepartment{#1}}
 \NewDocumentCommand \concentration { m } {\def\@uiucconcentration{#1}}
 \NewDocumentCommand \college { m } {\def\@uiuccollege{#1}}
-\NewDocumentCommand \schools { m } {\def\@uiucschools{#1}}
 
 \NewDocumentCommand \degree { m } {\def\@uiucdegree{#1}}
 \NewDocumentCommand \degreeyear { m } {\def\@uiucdegreeyear{#1}}
