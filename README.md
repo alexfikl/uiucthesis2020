@@ -95,7 +95,7 @@ cycle in `matplotlib` using you can do
 ```python
 import matplotlib as mpl
 
-plt.rcParams["axes.prop_cycle"] = mpl.cycler(color=[
+mpl.rcParams["axes.prop_cycle"] = mpl.cycler(color=[
     # Blue, Orange, Industrial, Harvest, Arches, Prairie, Patina, Berry, Earth
     "#13294B", "#FF5F05", "#1D58A7", "#FCB316", "#009FD4", "#006230",
     "#007E8E", "#5C0E41", "#7D3E13",
