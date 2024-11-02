@@ -75,15 +75,13 @@ these should be used, see the [official recommendations](https://marketing.illin
 | `IlliniOrange`       | ![#FF5F05](https://placehold.co/15x15/FF5F05/FF5F05.png) `(255, 95, 5)`    |
 | `IlliniBlue`         | ![#13294B](https://placehold.co/15x15/13294B/13294B.png) `(19, 41, 75)`    |
 | `IlliniAltgeld`      | ![#C84113](https://placehold.co/15x15/C84113/C84113.png) `(200, 65, 19)`   |
-| Secondary Colors     | RGB
-| :-                   | :-
+| **Secondary Colors** | **RGB**
 | `IlliniStorm1`       | ![#707372](https://placehold.co/15x15/707372/707372.png) `(112, 115, 114)` |
 | `IlliniStorm2`       | ![#9C9A9D](https://placehold.co/15x15/9C9A9D/9C9A9D.png) `(156, 154, 157)` |
 | `IlliniStorm3`       | ![#C8C6C7](https://placehold.co/15x15/C8C6C7/C8C6C7.png) `(200, 198, 199)` |
 | `IlliniStorm4`       | ![#FFFFFF](https://placehold.co/15x15/FFFFFF/FFFFFF.png) `(255, 255, 255)` |
 | `IlliniStorm5`       | ![#000000](https://placehold.co/15x15/000000/000000.png) `(0, 0, 0)`       |
-| Supporting Colors    | RGB
-| :-                   | :-
+| **Supporting Colors**| **RGB**
 | `IlliniIndustrial`   | ![#1D58A7](https://placehold.co/15x15/1D58A7/1D58A7.png) `(29, 88, 167)`   |
 | `IlliniArches`       | ![#009FD4](https://placehold.co/15x15/009FD4/009FD4.png) `(0, 159, 212)`   |
 | `IlliniHarvest`      | ![#FCB316](https://placehold.co/15x15/FCB316/FCB316.png) `(252, 179, 22)`  |
