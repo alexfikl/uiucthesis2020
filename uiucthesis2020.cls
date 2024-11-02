@@ -3,7 +3,7 @@
 
 % <<< preamble
 
-\def\fileversion{v2.33}
+\def\fileversion{v2.34}
 \def\filedate{2024/11/02}
 \def\clsname{uiucthesis2020}
 
