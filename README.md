@@ -7,22 +7,20 @@ still be respected (feel free to file a bug otherwise).
 
 At a technical level, a few things have changed in the class implementation:
 
-* it was updated to more recent versions of LaTeX with less care about
-  backwards compatibility.
-* it is now based on `scrbook` from *KOMA-Script* instead of the default
-  `book` document class.
-* the actual code class is hopefully easier to read, since a lot of weird
-  custom spacing code was removed and replaced with `scrlayer-scrpage`
-  and `tocbasic` utilities.
+* *Use the `scrbook` class from [KOMA-Script](https://ctan.org/pkg/koma-script?lang=en)*.
+  The class and surrounding packages have better support for typography and
+  improved versatility compared to the standard `book` class.
+* *Improve positioning and customization code*. The class uses the
+  `scrlayer-scrpage` and `tocbasic` utilities to modify the page style, table of
+  contents style, and various positioning and spacing in a more consistent fashion.
+* *Use higher level functionality*. Most parts switched from low level TeX
+  commands to LaTeX2e commands and standard packages.
 
-An example document is provided in `thesis.tex` and can be easily built with
-```bash
-make example
-```
-The provided documentation can also be built with
-```bash
-make docs
-```
+**Note**: There is now an officially promoted LaTeX template on the
+[Graduate College website](https://grad.illinois.edu/thesis/format) that can be
+found [here](https://uofi.app.box.com/s/f5za8r9qi4yahne2l1b6hapuahwve2mb). This
+is similarly based on the classic `uiucthesis2014` class. Unless you really like
+some formatting choices made here, you should really use that one!
 
 # Usage
 
@@ -38,7 +36,11 @@ to your own repository / local folder and use is as a document class
 ```
 
 The `thesis.tex` and `thesisstyle.tex` files are provided as inspiration and
-likely contain some personal preferences.
+likely contain some personal preferences. The example document can be easily built
+with
+```bash
+make example
+```
 
 # Options
 
@@ -57,6 +59,11 @@ documentation in ``uiucthesis2020.pdf`` for details). They are
   already ``1in``).
 * ``layoutgrid``: adds a nice grid on each page to allow checking the
   margins.
+
+The provided documentation can also be built with
+```bash
+make docs
+```
 
 # References
 
