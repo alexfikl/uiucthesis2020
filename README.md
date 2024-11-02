@@ -91,7 +91,7 @@ these should be used, see the [official recommendations](https://marketing.illin
 | `IlliniEarth`        | ![#7D3E13](https://placehold.co/15x15/7D3E13/7D3E13.png) `(125, 62, 19)`   |
 
 You can use these colors for your plots as well. For example, to set the color
-cycle in `matplotlib` using you can do
+cycle in `matplotlib` using `axes.prop_cycle` you can do
 ```python
 import matplotlib as mpl
 
