@@ -1,6 +1,6 @@
 % <<< preamble
 
-\def\fileversion{v2.32}
+\def\fileversion{v2.31}
 \def\filedate{2024/11/02}
 \def\clsname{uiucthesis2020}
 
@@ -132,45 +132,49 @@
 \def\@mkupauthor#1{\gdef\@Uauthor{#1}}
 \def\author#1{\gdef\@author{#1}\uppercase{\protect\@mkupauthor{#1}}}
 
-\def\department#1{\def\@dept{#1}}
-\def\college#1{\def\@college{#1}}
-\def\schools#1{\def\@schools{#1}}
-\def\degreeyear#1{\def\@degreeyear{#1}}
+\NewDocumentCommand \advisor { m } {\def\@uiucadviser{#1}}
+\NewDocumentCommand \adviser { m } {\def\@uiucadviser{#1}}
 
-\def\phdthesis{
-    \def\@degree{Doctor of Philosophy}
-    \def\degree{Ph.D.}
-    \def\@thesisname{DISSERTATION}
-    \def\@committeename{Doctoral Committee:}
-    }
+\NewDocumentCommand \department { m } {\def\@uiucdepartment{#1}}
+\NewDocumentCommand \concentration { m } {\def\@uiucconcentration{#1}}
+\NewDocumentCommand \college { m } {\def\@uiuccollege{#1}}
+\NewDocumentCommand \schools { m } {\def\@uiucschools{#1}}
 
-\def\msthesis{
-    \def\@degree{Master of Science}
-    \def\degree{M.S.}
-    \def\@thesisname{THESIS}
-    \def\@committeename{Master's Committee:}
-    }
+\NewDocumentCommand \degree { m } {\def\@uiucdegree{#1}}
+\NewDocumentCommand \degreeyear { m } {\def\@uiucdegreeyear{#1}}
+\NewDocumentCommand \thesisname { m } {\def\@uiucthesisname{\uppercase{\protect#1}}}
 
-\newcommand{\otherdoctorate}[2]{
-    \def\@degree{#1}
-    \def\degree{#2}
-    \def\@thesisname{DISSERTATION}
-    \def\@committeename{Doctoral Committee:}
-    }
+\NewDocumentCommand \committeename { m } {\def\@uiuccommitteename{#1}}
+\NewDocumentCommand \committee { m } {\def\@uiuccommittee{#1}}
+\NewDocumentCommand \volume { m } {\def\@uiucvolume{VOLUME~#1}}
 
-\newcommand{\othermasters}[2]{
-    \def\@degree{#1}
-    \def\degree{#2}
-    \def\@thesisname{THESIS}
-    \def\@committeename{Master's Committee:}
-    }
+\NewDocumentCommand \phdthesis {} {
+    \degree{Doctor of Philosophy}
+    \thesisname{Dissertation}
+    \committeename{Doctoral Committee}
+}
+\NewDocumentCommand \msthesis {} {
+    \degree{Master of Science}
+    \thesisname{Thesis}
+    \committeename{Adviser}
+}
 
-\newcommand{\committee}[1]{\gdef\@committee{#1}}
-\newcommand*{\volume}[1]{\gdef\thesis@volume{VOLUME~#1}}
-\newcommand*{\thesis@volume}{}
+\NewDocumentCommand \otherdoctorate { m } {
+    \degree{#1}
+    \thesisname{Dissertation}
+    \committeename{Doctoral Committee}
+}
 
-\newcommand*{\advisor}[1]{\gdef\@advisor{#1}}
-\newcommand*{\adviser}[1]{\gdef\@advisor{#1}}
+\NewDocumentCommand \othermasters { m } {
+    \degree{#1}
+    \thesisname{Thesis}
+    \committeename{Adviser}
+}
+
+% set default values
+\college{Graduate College}
+\degreeyear{\number\year}
+\def\@uiucvolume{}
 
 \if@edeposit
     \gdef\@committee{%
@@ -178,21 +182,17 @@
         {Use \protect\committee\space with members separated by \protect\\'s.}}
 \fi
 
+% >>>
+
+% <<< title pages
+
 % define copyright page
 \newif\if@thesiscrpage \@thesiscrpagetrue
-\def\copyrightnotice{\copyright\, Copyright~\@degreeyear~\@author.}
+\def\copyrightnotice{\copyright\, Copyright~\@uiucdegreeyear~\@author.}
 \let\nocopyrightpage\@thesiscrpagefalse
 \if@thesisdraft
     \nocopyrightpage
 \fi
-
-% set default values
-\def\@college{Graduate College}
-\def\@degreeyear{\number\year}
-
-% >>>
-
-% <<< title pages
 
 \renewcommand{\maketitle}{
 % <<< copyright
@@ -236,7 +236,7 @@
 % see https://grad.illinois.edu/files/pdfs/thesis-doctoral-titlepage-example.pdf
 % for details about some of these numbers, but note that they are eyeballed
 \newlength{\offset@fromtop}
-\setlength{\offset@fromtop}{1in}
+\setlength{\offset@fromtop}{1.08in}
 
 \newlength{\offset@fromtitle}
 \setlength{\offset@fromtitle}{1.5in}
@@ -269,13 +269,14 @@
     {\@Uauthor} \\[11pt]
     \vfil}%
 % statement
-\vbox to \offset@fromvolume {\thesis@volume\vfil}
+\vbox to \offset@fromvolume {\@uiucvolume\vfil}
 \vbox to \offset@fromsubmission {%
-    {\@thesisname} \\[11pt]
+    {\@uiucthesisname} \\[11pt]
     Submitted in partial fulfillment of the requirements \\
-    for the degree of \@degree\ in \@dept \\
-    in the \@college\ of the \\
-    University of Illinois Urbana-Champaign, \@degreeyear\vfil}
+    for the degree of \@uiucdegree\ in \@uiucdepartment \\
+    \@ifundefined{@uiucconcentration}{}{with a concentration in \@uiucconcentration \\}
+    in the \@uiuccollege\ of the \\
+    University of Illinois Urbana-Champaign, \@uiucdegreeyear\vfil}
 % location
 \vbox to \offset@fromaddress {Urbana, Illinois}
 \end{center}
@@ -292,8 +293,8 @@
 % committee
 \begin{flushleft}
     \vbox to 0.3in {
-    \hspace{-\dim@tpcommitteename}\@committeename\\}
-    \hspace{-\dim@tpcommittee}\begin{tabular}{l}\@committee\end{tabular}\vfil
+    \hspace{-\dim@tpcommitteename}\@uiuccommitteename: \\}
+    \hspace{-\dim@tpcommittee}\begin{tabular}{l}\@uiuccommittee\end{tabular}\vfil
 \end{flushleft}
 
 \endgroup
