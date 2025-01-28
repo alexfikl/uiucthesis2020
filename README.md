@@ -35,7 +35,7 @@ to your own repository / local folder and use is as a document class
 \end{document}
 ```
 
-The `thesis.tex` and `thesisstyle.tex` files are provided as inspiration and
+The `thesis.tex` and `thesisstyle.sty` files are provided as inspiration and
 likely contain some personal preferences. The example document can be easily built
 with (see the [just command runner](https://just.systems))
 ```bash
@@ -114,6 +114,8 @@ colororder([
 
 Some recommended reading
 
+* [A Guide to LaTeX2e (2007)](https://anorien.csc.warwick.ac.uk/mirrors/CTAN/info/l2tabu/english/l2tabuen.pdf)
+* [A LaTeX Primer (2022)](https://github.com/schtandard/latex_primer)
 * [microtype: Better Typography](http://www.khirevich.com/latex/microtype/)
 * [booktabs: Pretty Tables](https://inf.ethz.ch/personal/markusp/teaching/guides/guide-tables.pdf)
 * [xparse: Powerful Commands](https://www.texdev.net/2010/05/23/from-newcommand-to-newdocumentcommand/)
