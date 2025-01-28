@@ -29,7 +29,7 @@ license:
 [doc("Create a zip file with all the files")]
 zip: docs
     zip -9 uiucthesis2020.zip \
-        LICENSE thesis.tex thesisstyle.tex references.bib \
+        LICENSE thesis.tex thesisstyle.sty references.bib \
         uiucthesis2020.cls
 
 [doc("Remove all compilation files")]

@@ -1,7 +1,24 @@
 % SPDX-FileCopyrightText: 2022 Alexandru Fikl <alexfikl at gmail.com>
 % SPDX-License-Identifier:  CC0-1.0
 
+\ProvidesFile{thesisstyle}
+
 % {{{ packages
+
+\usepackage{iftex}
+\usepackage{xparse}
+
+% localization
+\usepackage[english]{babel}
+\ifpdftex
+    \usepackage[T1]{fontenc}
+
+    % avoid issues with ligatures in some pdf viewers
+    \input{glyphtounicode}
+    \pdfgentounicode=1
+\else
+    \usepackage{fontspec}
+\fi
 
 \usepackage{blindtext}
 
@@ -13,32 +30,24 @@
 
 % pretty links
 \usepackage{xparse}
-\usepackage{hyperref}
-\usepackage[nameinlink]{cleveref}
-\hypersetup{
-    colorlinks=true,
-    urlcolor=blue,
-    citecolor=black,
-    linkcolor=black
-}
+\usepackage[hypertexnames=false,breaklinks=true]{hyperref}
+\usepackage[nameinlink, noabbrev]{cleveref}
 
 % better environments
 \usepackage[shortlabels]{enumitem}
 \usepackage{booktabs}
 \usepackage{caption}
+\usepackage{subcaption}
 
 % graphics
 \usepackage{tikz}
 \usetikzlibrary{calc}
 
-% fancier font
-\usepackage[sc]{mathpazo}
 % better typography
+\usepackage[defaultlines=3,all]{nowidow}
 \usepackage[activate={true,nocompatibility}, % activate protrusion and font expansion
             final,              % enable microtype, use draft to disable
             tracking=true,
-            kerning=true,       % optimise interactions between characters
-            spacing=true,       % more uniform spacing between words
             factor=1100,        % more protrusion
             stretch=10,         % smaller values (default 20, 20) to avoid blurring
             shrink=10]{microtype}
@@ -48,8 +57,23 @@
 
 % {{{ formatting
 
-% enable section numbering only for the first three header levels
-\setcounter{secnumdepth}{2}
+% set font
+% NOTE: we want Palatino, but mathpazo is old and only works on PDFLaTeX
+\ifpdftex
+    \usepackage[sc]{mathpazo}
+\else
+    % NOTE: use mathpazo to set math fonts and Tex Gyre for other text
+    \usepackage{mathpazo}
+    \setmainfont{TeX Gyre Pagella}
+\fi
+
+% link format
+\hypersetup{
+    colorlinks=true,
+    urlcolor=blue,
+    citecolor=black,
+    linkcolor=black
+}
 
 % caption format
 % NOTE: set format=plain to remove caption indentation
@@ -58,6 +82,9 @@
 }
 
 % allow subsubsections in the TOC, if there are any
+% enable section numbering only for the first three header levels
+\setcounter{secnumdepth}{2}
+
 % NOTE: if you got to subsubsections, you probably have too many!
 \setcounter{tocdepth}{\subsubsectiontocdepth}
 \setcounter{secnumdepth}{\subsubsectionnumdepth}
@@ -70,8 +97,12 @@
 
 % {{{ commands
 
+% a nicely aligned := symbol from mathtools
+\NewDocumentCommand \coloneq {o} {\mathrel{\mathop:}\mathrel{\mkern-1.2mu}=}
+
 \NewDocumentCommand \dx { O{x} } {\,\mathrm{d} #1}
 \NewDocumentCommand \vect { m } { \mathbold{#1} }
+\NewDocumentCommand \matr {m} {\mathbold{#1}}
 \NewDocumentCommand \od { m m } { \dfrac{\mathrm{d} #1}{\mathrm{d} #2} }
 \NewDocumentCommand \pd { m m } { \dfrac{\partial #1}{\partial #2} }
 

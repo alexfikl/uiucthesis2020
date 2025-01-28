@@ -37,9 +37,9 @@ to your own repository / local folder and use is as a document class
 
 The `thesis.tex` and `thesisstyle.tex` files are provided as inspiration and
 likely contain some personal preferences. The example document can be easily built
-with
+with (see the [just command runner](https://just.systems))
 ```bash
-make example
+just thesis
 ```
 
 # Options
@@ -62,7 +62,7 @@ documentation in ``uiucthesis2020.pdf`` for details). They are
 
 The provided documentation can also be built with
 ```bash
-make docs
+just docs
 ```
 
 # Colors
