@@ -1,5 +1,5 @@
 % SPDX-FileCopyrightText: 2022 Alexandru Fikl <alexfikl at gmail.com>
-% SPDX-License-Identifier:  CC0-1.0
+% SPDX-License-Identifier: CC0-1.0
 
 % <<< preamble
 
